@@ -8,10 +8,10 @@ RUN dpkg --add-architecture i386 \
 RUN packs="vim build-essential python-dev libffi-dev git python-pip python3-pip gdb binutils xz-utils ruby libc6-dbg nasm lrzsz net-tools iputils-ping" \
   && apt-get install -y $packs \
   && rm -rf /var/lib/apt/lists/*
-COPY .vimrc /root/
+COPY ./src/.vimrc /root/
 
 RUN pip install --upgrade  pip 
-COPY ./pip /usr/bin/pip
+COPY ./src/pip /usr/bin/pip
 
 RUN pip install pwntools bpython angr\
   && git clone https://github.com/longld/peda.git ~/peda \
@@ -25,7 +25,7 @@ RUN pip install pwntools bpython angr\
   && pip install --upgrade pyelftools==0.24 \
   && gem install one_gadget
 
-COPY libc.tar.gz /root
+COPY ./src/libc.tar.gz /root
 RUN tar zxf /root/libc.tar.gz -C ~/ \
   && cd ~/libc \
   && python setup.py develop \
