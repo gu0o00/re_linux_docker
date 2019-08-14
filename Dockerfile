@@ -3,9 +3,9 @@ FROM ubuntu:16.04
 
 RUN dpkg --add-architecture i386 \
   && apt-get update \
-  && apt-get install -y libc6:i386 libncurses5:i386 libstdc++6:i386 libc-dbg:i386 module-assistant gcc-multilib g++-multilib 
+  && apt-get install -y libc6:i386 libncurses5:i386 libstdc++6:i386 libc-dbg:i386 module-assistant gcc-multilib g++-multilib
                                                                                                                            
-RUN packs="vim build-essential python-dev libffi-dev git python-pip python3-pip gdb binutils xz-utils ruby libc6-dbg nasm lrzsz net-tools iputils-ping strace" \
+RUN packs="vim build-essential python-dev libffi-dev git python-pip python3-pip gdb binutils xz-utils ruby libc6-dbg nasm lrzsz net-tools iputils-ping strace netcat" \
   && apt-get install -y $packs \
   && rm -rf /var/lib/apt/lists/*
 COPY ./src/.vimrc /root/
