@@ -3,7 +3,7 @@
 
 该docker镜像中集成以下工具：
 - 在ubuntu16.04 x64系统中增加32位程序支持
-- [peda](https://github.com/longld/peda)：gdb比较给力的插件
+- [pwndbg](https://github.com/pwndbg/pwndbg): gdb插件，可以很方便的调试堆
 - [pwntools](https://github.com/Gallopsled/pwntools)：CTF漏洞利用必备工具
 - [libheap](https://github.com/cloudburst/libheap)：可以快速查看堆分配情况
 - [LibcSearcher](https://github.com/lieanu/LibcSearcher)：根据已知函数确定libc版本，并查找其他库函数的symbols地址
@@ -12,9 +12,16 @@
 - pip/pip3：更新到最新版本
 - bpython：更好的以交互模式使用python
 - [angr](https://github.com/angr)：自动化逆向破解工具
+- [peda](https://github.com/longld/peda)：gdb比较好用的插件
 - ipuils-ping：ping命令支持
 - git
 - vim及其配置文件
+
+通过对.gdbinit两行内容的注释，可以选择使用peda或者pwndbg
+```
+source /pwndbg/gdbinit.py
+#source ~/peda/peda.py
+```
 
 ## 使用方法
 建议创建re_linux.sh文件，并写入一下内容：
