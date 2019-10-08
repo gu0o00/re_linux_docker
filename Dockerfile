@@ -29,5 +29,6 @@ RUN git clone https://github.com/longld/peda.git ~/peda \
   && gem install one_gadget
 
 COPY ./src/vimrc /root/.vimrc
+COPY ./src/heap.py /pwndbg/pwndbg/commands/heap.py
 
 WORKDIR /root/
