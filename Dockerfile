@@ -4,7 +4,7 @@ RUN dpkg --add-architecture i386 \
   && apt-get update \
   && apt-get install -y libc6:i386 libncurses5:i386 libstdc++6:i386 libc-dbg:i386 module-assistant gcc-multilib g++-multilib
 
-RUN packs="vim build-essential python-dev libffi-dev git python-pip python3-pip gdb binutils xz-utils ruby libc6-dbg nasm lrzsz net-tools iputils-ping strace netcat" \
+RUN packs="vim build-essential python-dev libffi-dev git python-pip python3-pip gdb=8.1-0ubuntu3 binutils xz-utils ruby libc6-dbg nasm lrzsz net-tools iputils-ping strace netcat" \
   && apt-get install -y $packs
 
 RUN git clone https://github.com/pwndbg/pwndbg.git \
