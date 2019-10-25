@@ -13,11 +13,17 @@ fi
 #echo $arg
 #echo $name
 
-docker run -it --rm \
--v $HOME:/root/share \
---name re_linux"$name" \
---cap-add=SYS_PTRACE \
---privileged \
-dapang10ve/re_linux"$arg" \
-bash
+docker ps|grep re_linux"$name"
 
+if [ $? -eq 0 ];then	#$?=0说明上个命令执行成功
+  docker exec -it re_linux"$name" bash
+else
+  #echo "first"
+  docker run -it --rm \
+  -v $HOME:/root/share \
+  --name re_linux"$name" \
+  --cap-add=SYS_PTRACE \
+  --privileged \
+  dapang10ve/re_linux"$arg" \
+  bash
+fi
