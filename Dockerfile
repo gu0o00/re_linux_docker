@@ -25,7 +25,7 @@ RUN git clone https://github.com/longld/peda.git ~/peda \
   && pip install --upgrade pyelftools==0.24 \
   && pip install --upgrade capstone==3.0.5\
   && pip install --upgrade sortedcontainers==2.0.5\
-  && pip install pwntools bpython angr \
+  && pip install pwntools bpython \
   && gem install one_gadget
 
 COPY ./src/vimrc /root/.vimrc
